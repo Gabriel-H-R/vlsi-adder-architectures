@@ -15,25 +15,39 @@ To guarantee silicon-level reliability and mathematical correctness of these com
 ## Architectural Topologies
 The adders implemented in this project map the carry computation into tree-like prefix networks, each offering distinct trade-offs between logic depth, fan-out, and wire routing area.
 
+(**Note:** All adders were synthesized using ``Cadence Genus``)
+
 ### 1. Kogge-Stone Adder (32-bit)
 **Characteristics:** A radix-2 parallel prefix network. It achieves the maximum theoretical speed with minimum logic depth ($\log_2 N$). However, it suffers from massive wire routing congestion and high fan-out, making it suitable for unconstrained high-performance ALUs where speed is the absolute priority.
 
-![Synthesized Circuit with **Cadence Genus**: Kogge-Stone 32-bit](docs/images/kogge_stone_adder32_schematic.png)
+<div align="center">
+  <img src="docs/images/kogge_stone_adder32_schematic.png" alt="Kogge-Stone Synthesis" width="350">
+  <p><i><b>Figure 1:</b> Synthesized Kogge-Stone architecture showing high density of parallel prefix wires.</i></p>
+</div>
 
 ### 2. Brent-Kung Adder (32-bit)
 **Characteristics:** Utilizes a forward tree to calculate intermediate carries and a reverse tree to compute the rest. It significantly reduces wiring complexity and silicon area compared to Kogge-Stone, at the cost of increased logic depth ($2\log_2 N - 1$) and slightly higher latency.
 
-![Synthesized Circuit with **Cadence Genus**: Brent-Kung 32-bit](docs/images/brent_kung_adder32_schematic.png)
+<div align="center">
+  <img src="docs/images/brent_kung_adder32_schematic.png" alt="Brent-Kung Synthesis" width="150">
+  <p><i><b>Figure 2:</b> Synthesized Brent-Kung architecture highlighting the reduced routing congestion.</i></p>
+</div>
 
 ### 3. Carry-Lookahead Adder (CLA - 32-bit)
 **Characteristics:** Computes block carries in parallel rather than fully expanding the prefix tree. It offers a balanced, structured intermediate trade-off between the slow Ripple-Carry and the area-hungry Kogge-Stone.
 
-![Synthesized Circuit with **Cadence Genus**: Carry-Lookahead 32-bit](docs/images/carry_look_ahead32_schematic.png)
+<div align="center">
+  <img src="docs/images/carry_look_ahead32_schematic.png" alt="CLA Synthesis" width="150">
+  <p><i><b>Figure 3:</b> Synthesized 32-bit Carry-Lookahead architecture highlighting the group-carry generation logic.</i></p>
+</div>
 
 ### 4. CLA Cascade (4x8-bit / Block Format)
 **Characteristics:** A variation of the standard CLA where the 32-bit adder is broken down into smaller cascaded blocks. This approach is highly modular and optimizes local routing, often used when layout constraints restrict massive parallel prefix networks.
 
-![Synthesized Circuit with **Cadence Genus**: CLA Cascade 32-bit](docs/images/cla_cascade432_schematic.png)
+<div align="center">
+  <img src="docs/images/cla_cascade432_schematic.png" alt="CLA Cascade Synthesis" width="150">
+  <p><i><b>Figure 4:</b> Synthesized CLA Cascade architecture showing the modular block-based synthesis result.</i></p>
+</div>
 
 ---
 
