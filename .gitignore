@@ -1,0 +1,44 @@
+# ============================================================================
+# .gitignore para Projetos de Verificação de Hardware (Cadence/UVM)
+# ============================================================================
+
+# --- Diretórios e Arquivos de Build/Simulação (Cadence Xcelium/Incisive) ---
+xcelium.d/
+INCA_libs/
+cov_work/
+waves.shm/
+*.log
+*.history
+*.key
+imc.key
+imc.log
+.simvision/
+simvision*/
+*.diag
+
+# --- Formas de Onda (Waveforms) Gerais ---
+*.vcd
+*.fsdb
+*.dsn
+*.trn
+*.shm
+
+# --- Outros Simuladores (Verilator, ModelSim/Questa, VCS) - Opcional mas recomendado ---
+obj_dir/
+work/
+transcript
+vsim.wlf
+csrc/
+simv
+simv.daidir/
+ucli.key
+
+# --- Arquivos Temporários de Sistema Operacional e Editores ---
+.DS_Store
+*.swp
+*~
+.vscode/
+.idea/
+
+# --- Arquivos específicos do EDA Playground ---
+*.ep.tar.gz
