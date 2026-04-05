@@ -5,7 +5,7 @@
 ![UVM](https://img.shields.io/badge/Methodology-UVM_1.2-purple.svg)
 ![Cadence](https://img.shields.io/badge/Simulator-Cadence_Xcelium-red.svg)
 
-## 📌 Project Overview
+## Project Overview
 This repository focuses on the architectural exploration and RTL implementation of high-performance 32-bit parallel adders. In modern microprocessors and ALUs, the ripple-carry effect is a major critical-path bottleneck. This project implements advanced Parallel Prefix Networks (PPN) to solve this limitation by computing Generate ($G$) and Propagate ($P$) signals in parallel.
 
 To guarantee silicon-level reliability and mathematical correctness of these complex architectures, the hardware implementations are rigorously validated using an industry-standard **Universal Verification Methodology (UVM)** environment built from scratch.
@@ -71,7 +71,7 @@ To prove the functional correctness of the implemented RTL architectures, a robu
 
 ---
 
-## 📂 Repository Structure
+## Repository Structure
 
 ```text
 ├── docs/                    # Architectural diagrams and UVM topology
@@ -136,7 +136,7 @@ Note: For those without Cadence licenses, the code is fully compatible with **[E
 
 ---
 
-## 📚 References
+## References
 
 The architectural designs and theoretical concepts implemented in this repository are based on the standard literature for VLSI design and computer arithmetic:
 
