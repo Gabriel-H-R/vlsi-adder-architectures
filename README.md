@@ -132,8 +132,6 @@ Note: For those without Cadence licenses, the code is fully compatible with **[E
 
 - Scoreboard Status: `0 Mismatches` across 10k + randomized transactions.
 
-[Screenshot of the terminal showing the UVM MATCH logs or the Cadence IMC coverage report here!]
-
 ---
 
 ## References
